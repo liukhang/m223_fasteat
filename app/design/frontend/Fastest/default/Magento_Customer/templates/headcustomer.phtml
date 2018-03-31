@@ -1,0 +1,68 @@
+
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+$loginmini = $block->getChildHtml('customer_form_login_mini');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$baseUrl = $objectManager->get('Magento\Store\Model\StoreManagerInterface')
+                    ->getStore()
+                    ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+// $context = $objectManager->get('Magento\Framework\App\Http\Context');
+// $isLoggedIn = $context->getValue(\Magento\Customer\Model\Context::CONTEXT_AUTH);
+?>
+<ul>
+	<li class="wishlist">
+		<a href="<?php echo $block->getbaseURL() ?>wishlist/"><?php echo __('Wishlist ') ?></a>
+	</li>
+	<li class="item link compare" data-bind="scope: 'compareProducts'" data-role="compare-products-link">
+	    <a class="action compare no-display" title="<?php /* @escapeNotVerified */ echo __('Compare Products') ?>"
+	       data-bind="attr: {'href': compareProducts().listUrl}, css: {'no-display': !compareProducts().count}"
+	    >
+	        <?php /* @escapeNotVerified */ echo __('Compare Products') ?>
+	        <span class="counter qty" data-bind="text: compareProducts().countCaption"></span>
+	    </a>
+	</li>
+	<li class="create">
+		<a href="<?php echo $block->getbaseURL() ?>customer/account/create/"><?php echo __('Create an Account ') ?></a>
+	</li>
+
+<?php if($block->customerLoggedIn()): ?>
+	<li class="dropdown">
+		
+			<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+		        <p class="customer-name"
+		              role="link"
+		              tabindex="0"
+		              data-bind="scope: 'customer'">
+		            <?php echo __('Hi') ?>,<span data-bind="text: customer().firstname"></span>
+		        </p>
+			</a>
+			<ul id="dropdown-menu" class="dropdown-menu">
+				<li><a href="<?php echo $block->getbaseURL() ?>customer/account/logout/"><?php echo __('Sign Out') ?></a></li>
+			</ul>
+		
+	</li>
+<?php else : ?>
+
+<li class="dropdown">
+	<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+	<?php echo __('Sign In') ?></a>
+
+    <!-- <a class="trigger-auth-popup" href="javascript:void(0);">Log in</a> -->
+
+	<div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+<?php /*
+		<div class="custom-login">
+			<?php echo $this->getLayout()->createBlock("Magento\Customer\Block\Form\Login")->setTemplate("Magento_Customer::form/login.phtml")->toHtml();?>
+		</div>
+*/ ?>
+	<?php echo $loginmini ?>
+	</div>
+</li>
+<?php endif; ?>
+
+</ul>

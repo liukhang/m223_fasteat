@@ -1,0 +1,25 @@
+<div id="popup-quick" style="display:block;">
+    <div class="lk-close">
+        <i class="fa fa-window-close" aria-hidden="true"></i>
+    </div>
+    <div class="lk-content">
+        
+    </div>
+</div>
+
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function($,modal) {
+            $(".lk-view").on('click',function(){ 
+                var fired_button = $(this).val();
+                $(".lk-content").append(fired_button);
+            });
+            $(".lk-close").on('click',function(){
+                $(".lk-content").empty();
+            });
+        });
+</script>

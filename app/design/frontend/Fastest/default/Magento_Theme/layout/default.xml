@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+        <referenceContainer name="header.container">
+            <block class="Magento\Framework\View\Element\Template" name="theme.header" after="-" template="Magento_Theme::html/custom-header.phtml">
+                <block class="Magento\Theme\Block\Html\Header\Logo" name="logo">
+                    <arguments>
+                        <argument name="logo_img_width" xsi:type="number">253</argument>
+                        <argument name="logo_img_height" xsi:type="number">48</argument>
+                    </arguments>
+                </block>
+                  
+                <block class="Magento\Framework\View\Element\Template" name="top.search" as="topSearch" template="Magento_Search::form.mini.phtml" />
+                <block class="Magento\Customer\Block\Account\Customer" name="custom.account" as="customAccount" template="Magento_Customer::headcustomer.phtml">
+                    <block class="Kara\Loadjs\Block\Loginmini" template="Magento_Customer::form/login.mini.phtml" name="customer_form_login_mini" />
+                </block>
+                <block class="Magento\Store\Block\Switcher" name="store_language" as="store_language" template="switch/languages.phtml"/>
+                <block class="Magento\Store\Block\Switcher" name="store_switcher" as="store_switcher" template="Magento_Store::switch/stores.phtml"/>
+            </block>
+        </referenceContainer>
+<!--          <referenceBlock name="store.settings">
+            <block class="Magento\Store\Block\Switcher" name="store.settings.switcher" before="-" template="switch/stores.phtml">
+                <arguments>
+                    <argument name="id_modifier" xsi:type="string">nav</argument>
+                </arguments>
+            </block>
+         </referenceBlock> -->
+        <referenceContainer name="footer-container">
+            <container name="footer" label="Page Footer" htmlTag="div" htmlClass="footer content">
+                <block class="Magento\Framework\View\Element\Template" name="custom-footer" template="Magento_Theme::html/custom-footer.phtml"/>
+            </container>
+            <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="Magento_Theme::html/copyright.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template" name="quick.view" template="Magento_Theme::html/lk-quick-view.phtml" />
+        </referenceContainer>      
+        <move element="top.search" destination="theme.header"/>
+        <move element="minicart" destination="theme.header"/>
+        <move element="custom.account" destination="theme.header"/>
+        <!-- <move element="store_switcher" destination="theme.header"/> -->
+        
+    </body>
+</page>

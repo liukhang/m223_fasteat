@@ -1,0 +1,115 @@
+<div class="content home-slider">
+    <ul class="slider-home owl-carousel">
+    	<li>
+    		<a href="#"><img class="img-responsive owl-lazy" data-src="http://127.0.0.1/m223_fastest/pub/media/wysiwyg/slider/fur-slide01.jpg" alt="Banner 02"></a>
+    	</li>
+    	<li>
+    		<a href="#"><img class="img-responsive owl-lazy" data-src="http://127.0.0.1/m223_fastest/pub/media/wysiwyg/slider/fur-slide02.jpg" alt="Banner 02"></a>
+    	</li>
+    	<li>
+    		<a href="#"><img class="img-responsive owl-lazy" data-src="http://127.0.0.1/m223_fastest/pub/media/wysiwyg/slider/fur-slide03.jpg" alt="Banner 02"></a>
+    	</li>
+    </ul>
+</div>
+<script>
+	require([
+  	"jquery",
+  	"owlcarousel/minjs"
+ 	], function($,owlCarousel){
+	    $('.slider-home.owl-carousel').owlCarousel({
+	        items: 1,
+	        animateOut: "fadeInRight",
+            animateIn: "fadeInLeft",
+	        autoplay:true,
+	        nav: true,
+	        dots: true,
+	        loop: true,
+	        lazyLoad: true,
+	        margin: 10
+	    });
+	    $('.slider-trend.owl-carousel').owlCarousel({
+	        loop: false,
+	        margin: 10,
+	        responsiveClass: true,
+	        autoplay:true,
+	        nav: true,
+	        dots: true,
+	        responsive: {
+	            0: {
+	                items: 2
+	            },
+	            600: {
+	                items: 3
+	            },
+	            1000: {
+	                items: 4,
+	                loop: false,
+	                margin: 20
+	            }
+	        },
+	    });
+	    $('.slider-blog-home.owl-carousel').owlCarousel({
+	        loop: false,
+	        margin: 20,
+	        responsiveClass: true,
+	        autoplay:true,
+	        nav: true,
+	        dots: true,
+	        responsive: {
+	            0: {
+	                items: 1
+	            },
+	            600: {
+	                items: 2
+	            },
+	            1000: {
+	                items: 3,
+	                loop: false,
+	                margin: 20
+	            }
+	        },
+	    });
+	    $('.slider-instangram.owl-carousel').owlCarousel({
+	        loop: false,
+	        margin: 20,
+	        responsiveClass: true,
+	        autoplay:false,
+	        nav: true,
+	        dots: true,
+	        responsive: {
+	            0: {
+	                items: 1
+	            },
+	            600: {
+	                items: 3
+	            },
+	            1000: {
+	                items: 5,
+	                loop: false,
+	                margin: 20
+	            }
+	        },
+	    });
+	    $('.slider-new.owl-carousel').owlCarousel({
+	        loop: false,
+	        margin: 20,
+	        responsiveClass: true,
+	        autoplay:false,
+	        nav: true,
+	        dots: true,
+	        responsive: {
+	            0: {
+	                items: 2
+	            },
+	            600: {
+	                items: 3
+	            },
+	            1000: {
+	                items: 4,
+	                loop: false,
+	                margin: 20
+	            }
+	        },
+	    });
+	});
+</script>

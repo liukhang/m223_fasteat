@@ -1,0 +1,64 @@
+<?php $topSearch = $block->getChildHtml('top.search'); ?>
+<?php $logo = $block->getChildHtml('logo'); //Logo ?>
+<?php $miniCart = $block->getChildHtml('minicart'); //Mini Cart ?>
+<?php $customer = $block->getChildHtml('custom.account'); ?>
+<?php $storeLanguage = $block->getChildHtml('store_language'); //Language Option ?>
+<?php $storesStore =  $block->getChildHtml('store_switcher'); ?>
+
+<div class="top-header">
+	<div class="header-container">
+		<div class="row">
+			<div class="col-md-6 col-xs-12">
+				<div class="left">
+					<?php echo $storesStore ?>
+				</div>
+				<div class="right">
+					<?php echo $storeLanguage ?>
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-12">
+				<?php echo $customer ?>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="header-content">
+	<div class="header-container">
+		<div class="row">
+			<div class="col-md-3 col-xs-2 search-desktop">
+				<span data-action="toggle-nav" class="action nav-toggle"><span><?php /* @escapeNotVerified */ echo __('Toggle Nav') ?></span></span>
+				<?php echo $topSearch  ?>
+			</div>
+			<div class="col-md-7 col-xs-8 header-logo">
+				<?php echo $logo ?>
+			</div>
+			<div class="col-md-2 col-xs-2">
+				<?php echo $miniCart ?>
+			</div>
+			<div class="col-md-3 col-xs-12 search-mobile">
+				<?php echo $topSearch  ?>
+			</div>
+		</div>
+	</div>
+</div>
+<script>	
+	require(["jquery"], function($){
+		$(window).scroll(function () {
+			var headerHeight = $('.sections.nav-sections').height()+20;
+			
+			if ($(this).scrollTop() > headerHeight) {
+				$('.sections.nav-sections').addClass('header-container-fixed animated');
+				$('.minicart-wrapper').addClass('minicart-wrapper-fixed animated');
+				$('.search-desktop .block-search').addClass('block-search-fixed animated');
+				
+			} 
+			else{
+				$('.sections.nav-sections').removeClass('header-container-fixed animated');
+				$('.minicart-wrapper').removeClass('minicart-wrapper-fixed animated');
+				$('.search-desktop .block-search').removeClass('block-search-fixed animated');
+			}
+			return false;
+		});
+	});
+</script>
+

@@ -1,0 +1,114 @@
+<div class="footer-top-ads text-center cls-style02">
+	<p class="ftop-ads-title"><?php echo __('Newsletter') ?></p>
+	<p class="ftop-ads-desc"><?php echo __('Be the first to know about the latest deals, style updates &amp; more!') ?></p>
+	<div class="ftop-newsletter"> 
+		<div class="block newsletter">
+			<div class="content">
+		        <form class="form subscribe"
+		            novalidate
+		            action="<?php /* @escapeNotVerified */ echo $block->getFormActionUrl() ?>"
+		            method="post"
+		            data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+		            id="newsletter-validate-detail">
+		            <div class="field newsletter">
+		                <label class="label" for="newsletter"><span><?php /* @escapeNotVerified */ echo __('Sign Up for Our Newsletter:') ?></span></label>
+		                <div class="control">
+		                    <input name="email" type="email" id="newsletter"
+		                                placeholder="<?php /* @escapeNotVerified */ echo __('Enter your email address') ?>"
+		                                data-validate="{required:true, 'validate-email':true}"/>
+		                </div>
+		            </div>
+		            <div class="actions">
+		                <button class="action subscribe primary" title="<?php /* @escapeNotVerified */ echo __('Subscribe') ?>" type="submit">
+		                    <span><?php /* @escapeNotVerified */ echo __('Subscribe') ?></span>
+		                </button>
+		            </div>
+		        </form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="centered clearfix">
+	<div class="footer-navigation">		
+	      <div class="footer-links-holder">
+	        <p class="h5 hidden-xs">About us</p>
+			<div>
+			<p class="hidden-xs">Fastest Magento 2 store has seen some remarkable accomplishments over the past 30 years. With a goal to become an $8 billion company by 2017</p>
+				<div class="footer-social">
+					<p class="flow-us visible-xs">Follow us</p>
+					<p class="social"><a href="#"><span class="fa fa-facebook">&nbsp;</span></a> <a href="#"><span class="fa fa-twitter">&nbsp;</span></a> <a href="#"><span class="fa fa-pinterest-p">&nbsp;</span></a> <a href="#"><span class="fa fa-google-plus">&nbsp;</span></a> <a href="#"><span class="fa fa-tumblr">&nbsp;</span></a> <a href="#"><span class="fa fa-vimeo">&nbsp;</span></a></p>
+				</div>
+			</div>
+	      </div>
+	      <div class="footer-links-holder">
+	        <p class="h5" data-cdz-toggle="#footer-content-2">You Link</p>
+			<ul id="footer-content-2" class="footer-link showhide footer-links">
+				<li><a href="#">Side Navigation</a></li>
+				<li><a href="http://127.0.0.1/m223_fastest/about-us">About Us</a></li>
+				<li><a href="http://127.0.0.1/m223_fastest/contact">Contact Us</a></li>
+				<li><a href="#">Forum Support</a></li>
+				<li class="last"><a href="http://127.0.0.1/m223_fastest/privacy-policy-cookie-restriction-mode">Privacy Policy</a></li>
+			</ul>
+	      </div>
+	      <div class="footer-links-holder">
+	      	<p class="h5" data-cdz-toggle="#footer-content-3">Infomation</p>
+			<ul id="footer-content-3" class="footer-link showhide footer-links">
+				<li><a href="#">Side Navigation</a></li>
+				<li><a href="http://127.0.0.1/m223_fastest/about-us">About Us</a></li>
+				<li><a href="http://127.0.0.1/m223_fastest/contact">Contact Us</a></li>
+				<li><a href="#">Forum Support</a></li>
+				<li class="last"><a href="http://127.0.0.1/m223_fastest/privacy-policy-cookie-restriction-mode">Privacy Policy</a></li>
+			</ul>
+	      </div>
+		<div class="footer-links-holder">
+			<p class="h5" data-cdz-toggle="#footer-content-4">Item Tags</p>
+			<ul id="footer-content-4" class="item_tag showhide footer-links">
+				<li><a href="#">awesome</a></li>
+				<li><a href="#">beautiful</a></li>
+				<li><a href="#">flat design</a></li>
+				<li><a href="#">ios</a></li>
+				<li><a href="#">mass</a></li>
+				<li><a href="#">awesome</a></li>
+				<li><a href="#">beautiful</a></li>
+				<li><a href="#">flat design</a></li>
+				</ul>
+		</div>
+	</div>
+</div>
+<div id="back-top"><a title="<?php echo __('Top')?>" href="javascript:void(0)"><?php echo __('Top')?></a></div>
+<script>
+	require(["jquery"], function($){
+		$(".footer-links-holder .h5").click(function() {
+			$(this).parent().toggleClass("active");
+		});
+		$(window).scroll(function () {
+			 var headerHeight = $('#header').height()+20;
+			
+		 	if ($(this).scrollTop() > headerHeight) {
+				$('#header').addClass('header-container-fixed animated');
+				//$('.wrapper').css( "margin-top", headerHeight );
+		 	} 
+		 	else{
+				$('#header').removeClass('header-container-fixed animated');
+				//$('.wrapper').css( "margin-top", "0" );
+		 	}
+		 return false;
+		});
+		// ===== Scroll to Top ==== 
+		$(window).scroll(function() {
+		    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+		        $('#back-top').fadeIn(200);    // Fade in the arrow
+		    } else {
+		        $('#back-top').fadeOut(200);   // Else fade out the arrow
+		    }
+		});
+		$('#back-top').click(function() {      // When arrow is clicked
+		    $('body,html').animate({
+		        scrollTop : 0                       // Scroll to top of body
+		    }, 500);
+		});
+	});
+</script>
+
+
+

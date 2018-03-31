@@ -1,0 +1,73 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper(\Magento\Search\Helper\Data::class);
+?>
+<div class="theme-search">
+
+    <div class="search-switcher">
+
+        <div class="dropdown-toggle">
+
+            <div class="icon-search"><i class="fa fa-search"></i></div>
+
+        </div>
+
+        <div class="dropdown-switcher"> 
+            <form class="form minisearch" id="search_mini_form" action="<?= /* @escapeNotVerified */ $helper->getResultUrl() ?>" method="get">
+                <div class="field search">
+                    <label class="label" for="search" data-role="minisearch-label">
+                        <span><?= /* @escapeNotVerified */ __('Search') ?></span>
+                    </label>
+                    <div class="control custom-control-search">
+                        <input id="searcha"
+                               type="text"
+                                data-mage-init='{"quickSearch":{
+                                    "formSelector":"#search_mini_form",
+                                    "url":"<?= /* @escapeNotVerified */ $helper->getSuggestUrl()?>",
+                                    "destinationSelector":"#search_autocomplete"}
+                               }'
+                               name="<?= /* @escapeNotVerified */ $helper->getQueryParamName() ?>"
+                               value="<?= /* @escapeNotVerified */ $helper->getEscapedQueryText() ?>"
+                               class="input-text custom-input-search"
+                               maxlength="<?= /* @escapeNotVerified */ $helper->getMaxQueryLength() ?>"
+                               role="combobox"
+                               aria-haspopup="false"
+                               aria-autocomplete="both"
+                               autocomplete="off"/>
+                        <div id="search_autocomplete" class="search-autocomplete"></div>
+                        <?= $block->getChildHtml() ?>
+                        <div class="custom-button-search">
+                        <button id='submitBtn' type="submit" title="Cerca" class="action search enableOnInput" disabled='disabled'><i class="fa fa-search"></i>
+                        </button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+<script>
+    require(["jquery"], function($){
+           $(document).ready(function(){
+                $('#searcha').keyup(function () {
+                    if ($(this).val() == '') {
+                        $('.enableOnInput').prop('disabled', true);
+                    } else {
+                        $('.enableOnInput').prop('disabled', false);
+                    }
+                });
+            }); 
+    });
+</script>
